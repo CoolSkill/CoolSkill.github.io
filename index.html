@@ -165,14 +165,14 @@
 
         
         <a href="/2020/07/05/Windows%E4%B8%8BHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E6%97%A0%E5%9D%91%E7%89%88%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-07-04T23:42:37.675Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-05</time>
+  	<time datetime="2020-07-05T01:37:44.303Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Windows下Hexo搭建个人博客（无坑版）"><a href="#Windows下Hexo搭建个人博客（无坑版）" class="headerlink" title="Windows下Hexo搭建个人博客（无坑版）"></a>Windows下Hexo搭建个人博客（无坑版）</h2><p>很久以前就想搭建一个自己的博客，一直不曾付诸实践，长期停留在意识阶段。偶然在B站刷到了“CodeSheep”的教程，恰逢期末结束，一时间不知该干什么，那就把这件放在心中许久的事圆满的结束吧。这篇文章将记录制作博客的详细过程（使用Hexo，yilia主题，部署到GitHub）。<br> <strong>1. 前期准备工作</strong><br><strong>安装依赖</strong><br><a href="https://gitforwindows.org/" target="_blank" rel="noopener">git</a><br><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>（选择LTzuishuS版本）<br>安装的时候一直”next”即可，这里就不详细赘述。</p>
+        <h2 id="Windows下Hexo搭建个人博客（无坑版）"><a href="#Windows下Hexo搭建个人博客（无坑版）" class="headerlink" title="Windows下Hexo搭建个人博客（无坑版）"></a>Windows下Hexo搭建个人博客（无坑版）</h2><p>很久以前就想搭建一个自己的博客，一直不曾付诸实践，长期停留在意识阶段。偶然在B站刷到了“CodeSheep”的教程，恰逢期末结束，一时间不知该干什么，那就把这件放在心中许久的事圆满的结束吧。这篇文章将记录制作博客的详细过程（使用Hexo，yilia主题，部署到GitHub）。<br> <strong>1. 前期准备工作</strong><br><strong>安装依赖</strong><br><a href="https://gitforwindows.org/" target="_blank" rel="noopener">git</a><br><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>（选择LTS版本）<br>安装的时候一直”next”即可，这里就不详细赘述。</p>
 <p> <strong>2. 使用hexo来正式搭建博客</strong><br><strong>2.1.安装hexo</strong><br>win+r，打开cmd控制台<br><strong>添加国内镜像</strong><br>这里我们使用阿里的国内镜像进行加速</p>
 <blockquote>
 <p>npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a></p>
@@ -235,7 +235,7 @@
 <blockquote>
 <p>hexo clean   #清除缓存 ，网页正常情况下可以忽略此条命令,执行该指令后,会删掉站点根目录下的public文件夹<br>hexo g         #等价于 hexo generate ，生成静态网页 (执行 $ hexo g 后会在站点根目录下生成public&gt;文件夹，hexo会将”&lt;font /blog/source/“ 下面的.md后缀的文件编译为.html后缀的文件，存放在”/blog/public/ “ 路径下)<br>hexo s<br>hexo d</p>
 </blockquote>
-<p>回到浏览器刷新一下可以看到我们要的主题已经部署上了。<br>注：改了主题不是立马就生效了，不要心急，等一等就OK了。<br>like this<br>大功告成，以后就可以分享给朋友了~<br><strong>总结：</strong><br>我们以后常用到的hexo命令：</p>
+<p>回到浏览器刷新一下可以看到我们要的主题已经部署上了。<br>注：改了主题不是立马就生效了，不要心急，等一等就OK了。<br><a href="https://coolskill.github.io" target="_blank" rel="noopener">预览</a><br>大功告成，以后就可以分享给朋友了~<br><strong>总结：</strong><br>我们以后常用到的hexo命令：</p>
 <blockquote>
 <p>hexo s<br>hexo g<br>hexo d<br>hexo clean</p>
 </blockquote>
