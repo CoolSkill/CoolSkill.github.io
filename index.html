@@ -180,74 +180,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>之前就有萌生过自己搭建博客的想法，只是一直不曾付诸实践，长期停留在意识阶段。偶然在B站刷到了大佬“CodeSheep”的相关教程，觉得是时候动手拿下这积压心中已久的想法。恰逢期末结束，一时间也比较迷茫，想着心动不如行动，动动手顺便过渡一下状态。<br>这篇文章将记录搭建个人博客的详细过程（使用Hexo，yilia主题，部署到GitHub）。</p>
-<p> <strong>1. 前期准备工作</strong><br><strong>安装依赖</strong><br><a href="https://gitforwindows.org/" target="_blank" rel="noopener">git</a><br><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>（下载安装LTS版本）<br>安装的时候一直”next”即可，这里就不详细赘述。</p>
-<p> <strong>2. 使用hexo来正式搭建博客</strong><br><strong>2.1.安装hexo</strong><br>win+r，打开cmd控制台。<br><strong>添加国内镜像</strong><br>这里我们使用阿里的国内镜像进行加速</p>
-<blockquote>
-<p>npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a></p>
-</blockquote>
-<p>然后通过cnpm来安装hexo</p>
-<blockquote>
-<p>cnpm install -g hexo-cli</p>
-</blockquote>
-<p>新建一个文件夹（存放位置按自己的想法来就好，万一没想法就跟我一样好了），可以手动新建，亦或在控制台输入</p>
-<blockquote>
-<p>cd /    #切换至根目录下<br>mkdir blog  #创建目录，一会要装的东西都放在这个目录下，出错也别慌，把这个目录干掉重来，几分钟后还是一条好汉~<br>cd blog</p>
-</blockquote>
-<p>接下来就可以真正的使用hexo来生成博客</p>
-<p><strong>2.2.初始化一个博客</strong></p>
-<blockquote>
-<p>hexo init</p>
-</blockquote>
-<p>初始化完成之后会显示</p>
-<blockquote>
-<p>INFO Start blogging with Hexo!</p>
-</blockquote>
-<p><strong>2.3.启动博客</strong></p>
-<blockquote>
-<p>hexo s  #等价于 hexo server ，hexo 会监视文件变动并自动更新，除修改站点配置文件外，无须重启服务器，直接刷新网页即可生效。</p>
-</blockquote>
-<p><img src="https://img-blog.csdnimg.cn/20200705103505886.png" alt="启动服务"></p>
-<p>至此，博客即在<a href="http://localhost:4000启动，可以通过浏览器查看">http://localhost:4000启动，可以通过浏览器查看</a><br><img src="https://img-blog.csdnimg.cn/20200705101937748.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0Nvb2xTa2lsbA==,size_16,color_FFFFFF,t_70" alt="博客本地启动">可以看到，默认有一篇文章”Hello World“。</p>
-<p><strong>以后只需要cd进到所创建文件夹的位置再开启服务就好了，例如我是cd /blog然后hexo s</strong></p>
-<blockquote>
-<p>Ctrl+C断开服务</p>
-</blockquote>
-<p><strong>3.部署到github上公开使用</strong><br><del>没账号的先去注册一个账号（恕我废话）</del>  ，新建一个仓库(Repository)</p>
-<blockquote>
-<p>自己的github用户名.github.io #必须和自己的github用户名一致，不然一会儿部署不上</p>
-</blockquote>
-<p>要是一不小心输错了，重命名便是<br><img src="https://img-blog.csdnimg.cn/20200705122542361.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0Nvb2xTa2lsbA==,size_16,color_FFFFFF,t_70" alt="重命名"><br><del>所以你要不信，可以试试，这样印象才比较深刻嘛</del><br>往后我们直接在浏览器里输入这个地址就可以访问自己的博客了。</p>
-<p>创建好以后，可以看到目前是一个空仓库。<br><img src="https://img-blog.csdnimg.cn/20200705104908156.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0Nvb2xTa2lsbA==,size_16,color_FFFFFF,t_70" alt="空仓库"><br><strong>3.1.安装hexo-deployer-git</strong><br>这一步很重要，从github克隆主题以及部署到github需要这个工具</p>
-<blockquote>
-<p>cnpm install –save hexo-deployer-git</p>
-</blockquote>
-<p><strong>3.2.设置”_config.yml“</strong><br>在博客（即刚才创建的blog目录）的根目录找到配置文件“_config.yml”，懒得再装软件就直接用Windows自带的notepad（右键以记事本方式打开即可），在其末尾找到“deploy”，将其内容修改为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:    		</span><br><span class="line">  type: git 		</span><br><span class="line">  repo: 仓库地址.git		#例如我是https:&#x2F;&#x2F;github.com&#x2F;CoolSkill&#x2F;CooolSkill.github.io.git 			</span><br><span class="line">  branch: master		#默认也是这个，可以不写</span><br></pre></td></tr></table></figure>
-
-<p>保存退出<br><strong>3.3.将本地数据部署到远端服务器(这里指github)</strong></p>
-<blockquote>
-<p>hexo d        #等价于 hexo deploy </p>
-</blockquote>
-<p>按提示输入你github的账号、密码，然后浏览器输入刚才的仓库名访问。<br>回到GitHub刷新，可以看到这时候仓库已经改变了。<br><img src="https://img-blog.csdnimg.cn/20200705102704880.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0Nvb2xTa2lsbA==,size_16,color_FFFFFF,t_70" alt="改变后的仓库"><br>这样，以后就不再局限于本地预览了，还可以直接通过”github用户名.github.io“访问自己的博客了。</p>
-<p><strong>这样，博客的部署工作就完成了~</strong></p>
-<p><strong>4.更换博客主题</strong><br>暂时拿不定主意的话，推荐：<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia</a><br>hexo安装的时候会默认安装一个landscape主题。很明显，我不喜欢。得换！<br><strong>4.1.主题安装</strong><br>我们可以去github上下载zip，然后解压到目录blog\themes，注意文件夹命名。<br>也可以使用【git clone 主题地址 themes\主题名】来直接克隆到主题目录</p>
-<blockquote>
-<p>git clone <a href="https://github.com/litten/hexo-theme-yilia.git" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia.git</a> themes\yilia</p>
-</blockquote>
-<p><strong>4.2.修改配置文件</strong><br>克隆好主题以后，需要找到并修改一下blog目录下的_config.yml文件。<br>我们需要找到themes这个配置，将其修改为我们选好的主题（要和themes下的文件名相同），默认为landscape</p>
-<blockquote>
-<p>theme: yilia</p>
-</blockquote>
-<p>保存并退出。<br>这个时候主题就已经更换好了！<br><strong>4.3.重新部署</strong></p>
-<blockquote>
-<p>hexo clean   #清除缓存 ，网页正常情况下可以忽略此条命令，执行该指令后，会删掉站点根目录下的public文件夹<br>hexo g         #等价于 hexo generate ，生成静态网页 (执行 $ hexo g 后会在站点根目录下生成public&gt;文件夹，hexo会将”&lt;font /blog/source/“ 下面的.md后缀的文件编译为.html后缀的文件，存放在”/blog/public/ “ 路径下)<br>hexo s<br>hexo d</p>
-</blockquote>
-<p>回到浏览器刷新一下可以看到我们要的主题已经部署上了。<br>注：改了主题不是立马就生效了，不要心急，等一等就OK了。<br><a href="https://coolskill.github.io" target="_blank" rel="noopener">预览</a><br>大功告成，以后就可以分享给朋友了~<br><strong>总结：</strong><br>我们以后常用到的Hexo命令：</p>
-<blockquote>
-<p>hexo s<br>hexo g<br>hexo d<br>hexo clean</p>
-</blockquote>
-<p><a href="https://www.bilibili.com/video/BV1Yb411a7ty" target="_blank" rel="noopener">教程原视频</a></p>
-
+        
+          <a class="article-more-a" href="/2020/07/05/Windows%E4%B8%8BHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%AF%A6%E7%BB%86%E6%B5%81%E7%A8%8B%EF%BC%88%E6%97%A0%E5%9D%91%E7%89%88%EF%BC%89/#more">more >></a>
+        
       
 
       
@@ -257,6 +192,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">-hexo -github</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -387,6 +333,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">-hexo -github</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
