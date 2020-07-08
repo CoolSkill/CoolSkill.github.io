@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>CollSkill</title>
+  <title>看板娘安装报错解决方案 | CollSkill</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="CollSkill">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="自从搭建了个人博客之后，就迫不及待地想要将其完善。别的不说，起码得有一位看板娘来镇镇场子吧。说干就干，可哪曾想过程如此的不顺利！一上来执行npm install --save hexo-helper-live2d就报错…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="看板娘安装报错解决方案">
+<meta property="og:url" content="http://yoursite.com/2020/07/08/%E7%9C%8B%E6%9D%BF%E5%A8%98%E5%AE%89%E8%A3%85%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html">
 <meta property="og:site_name" content="CollSkill">
+<meta property="og:description" content="自从搭建了个人博客之后，就迫不及待地想要将其完善。别的不说，起码得有一位看板娘来镇镇场子吧。说干就干，可哪曾想过程如此的不顺利！一上来执行npm install --save hexo-helper-live2d就报错…">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-08T09:19:36.706Z">
+<meta property="article:modified_time" content="2020-07-08T09:21:00.970Z">
 <meta property="article:author" content="CoolSkill">
-<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="-hexo -github">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CollSkill" type="application/atom+xml">
@@ -145,19 +149,25 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-    <article id="post-看板娘安装报错解决方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-看板娘安装报错解决方案" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/08/%E7%9C%8B%E6%9D%BF%E5%A8%98%E5%AE%89%E8%A3%85%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">看板娘安装报错解决方案</a>
+    <h1 class="article-title" itemprop="name">
+      看板娘安装报错解决方案
     </h1>
   
 
 	<!--显示阅读次数-->
+	
+  		<br/>
+  		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+  		<span class="icon-sort"></span>
+  		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  		</span>
+  		</a>
 	
 	<!--显示阅读次数完毕-->
         
@@ -170,13 +180,65 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>自从搭建了个人博客之后，就迫不及待地想要将其完善。<br>别的不说，起码得有一位<code>看板娘</code>来镇镇场子吧。说干就干，可哪曾想过程如此的不顺利！一上来执行<code>npm install --save hexo-helper-live2d</code>就报错…</p>
-        
-          <a class="article-more-a" href="/2020/07/08/%E7%9C%8B%E6%9D%BF%E5%A8%98%E5%AE%89%E8%A3%85%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/#more">more >></a>
-        
-      
+<a id="more"></a>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm ERR! code ERR_TLS_CERT_ALTNAME_INVALID</span><br><span class="line">npm ERR! errno ERR_TLS_CERT_ALTNAME_INVALID</span><br><span class="line">npm ERR! request to https:&#x2F;&#x2F;registry.cnpmjs.org&#x2F;hexo-helper-live2d failed, reason: Hostname&#x2F;IP does not match certificate&#39;s altnames: Host: registry.cnpmjs.org. is not in the cert&#39;s altnames: DNS:r.cnpmjs.org</span><br><span class="line">npm ERR! A complete log of this run can be found in:</span><br></pre></td></tr></table></figure>
+<p>经过仔细排查和google，原来是ssl 的问题。<br>解决方法：<br>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set strict-ssl false</span><br><span class="line">npm install -g supervisor</span><br></pre></td></tr></table></figure>
+
+<p>完事儿之后再执行<code>npm install --save hexo-helper-live2d</code>就没得问题咯~</p>
+<p><a href="http://www.jincon.com/archives/141/" target="_blank" rel="noopener">参考文章</a></p>
 
       
 
+      
+       
+         <div class="essayending">
+           <div>
+            <div style="text-align:center;color: #ccc;font-size:22px;">
+            <br/>
+            <br/>
+            -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+            <br/>
+            <br/>
+             <br/>
+             <br/>
+            </div>
+           </div>
+         </div>
+       
+
+   
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+             <!-- 增加版权声明 -->
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+<!-- 增加版权声明结束 -->
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thank You！！！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -198,10 +260,73 @@
       
 
       
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/08/%E7%9C%8B%E6%9D%BF%E5%A8%98%E5%AE%89%E8%A3%85%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/05/Windows%E4%B8%8BHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%AF%A6%E7%BB%86%E6%B5%81%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Windows下Hexo搭建个人博客详细流程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -216,90 +341,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Windows下Hexo搭建个人博客详细流程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/05/Windows%E4%B8%8BHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%AF%A6%E7%BB%86%E6%B5%81%E7%A8%8B/">Windows下Hexo搭建个人博客详细流程</a>
-    </h1>
-  
-
-	<!--显示阅读次数-->
-	
-	<!--显示阅读次数完毕-->
-        
-        <a href="/2020/07/05/Windows%E4%B8%8BHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%AF%A6%E7%BB%86%E6%B5%81%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-07-05T05:38:52.160Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>之前就有萌生过自己搭建博客的想法，只是一直不曾付诸实践，长期停留在意识阶段。偶然在B站刷到了大佬“CodeSheep”的相关教程，觉得是时候动手拿下这积压心中已久的想法。恰逢期末结束，一时间也比较迷茫，想着心动不如行动，动动手顺便过渡一下状态。<br>这篇文章将记录搭建个人博客的详细过程（使用Hexo，yilia主题，部署到GitHub）。</p>
-        
-          <a class="article-more-a" href="/2020/07/05/Windows%E4%B8%8BHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%AF%A6%E7%BB%86%E6%B5%81%E7%A8%8B/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">-hexo -github</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    暂无目录...…
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
+  
+  
+  
 
   
+
+  
+
   
 
 
@@ -325,8 +392,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
