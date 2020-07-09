@@ -6,37 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>PicGo + Gitee搭建个人免费图床详细流程 | CollSkill</title>
+  <title>Archives: 2020/7 | CollSkill</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言：个人博客是搭建起来了（详细流程请参阅Windows下Hexo搭建个人博客详细流程），可是不经意间又发现了一个痛点：写博客的时候，总是需要插入图片的，图片存在本地的话上传到博客网站去就没法显示了，就算一张一张地复制粘贴上去了，再想移植到其他的博客网站时，图片也会失效。为了解决这个痛点，搭建个人图床的想法就应运而生了。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="PicGo + Gitee搭建个人免费图床详细流程">
-<meta property="og:url" content="http://yoursite.com/2020/07/09/PicGo%20+%20Gitee%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A%E8%AF%A6%E7%BB%86%E6%B5%81%E7%A8%8B/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="CollSkill">
+<meta property="og:url" content="http://yoursite.com/archives/2020/07/page/2/index.html">
 <meta property="og:site_name" content="CollSkill">
-<meta property="og:description" content="前言：个人博客是搭建起来了（详细流程请参阅Windows下Hexo搭建个人博客详细流程），可是不经意间又发现了一个痛点：写博客的时候，总是需要插入图片的，图片存在本地的话上传到博客网站去就没法显示了，就算一张一张地复制粘贴上去了，再想移植到其他的博客网站时，图片也会失效。为了解决这个痛点，搭建个人图床的想法就应运而生了。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3QyLnBuZw?x-oss-process=image/format,png">
-<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3QzLnBuZw?x-oss-process=image/format,png">
-<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3Q0LnBuZw?x-oss-process=image/format,png">
-<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3Q1LnBuZw?x-oss-process=image/format,png">
-<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3Q2LnBuZw?x-oss-process=image/format,png">
-<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3Q3LnBuZw?x-oss-process=image/format,png">
-<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3QxLnBuZw?x-oss-process=image/format,png">
-<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy8lMjBPdGhlcnMvZnVubnkvJUU2JTg4JTkxJUU0JUJGJUExJUU0JUJEJUEwJUU0JUI4JUFBJUU5JUFDJUJDJUU1JTkzJUE2LmpwZw?x-oss-process=image/format,png">
-<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3Q4LnBuZw?x-oss-process=image/format,png">
-<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3Q5LnBuZw?x-oss-process=image/format,png">
-<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3QxMC5wbmc?x-oss-process=image/format,png">
-<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3QxMS5wbmc?x-oss-process=image/format,png">
-<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3QxMi5wbmc?x-oss-process=image/format,png">
-<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3QxMy5wbmc?x-oss-process=image/format,png">
-<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3QxNC5wbmc?x-oss-process=image/format,png">
-<meta property="article:published_time" content="2020-07-09T06:41:55.196Z">
-<meta property="article:modified_time" content="2020-07-09T14:42:28.481Z">
 <meta property="article:author" content="CoolSkill">
-<meta property="article:tag" content="gitee">
-<meta property="article:tag" content="picgo">
+<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3QyLnBuZw?x-oss-process=image/format,png">
   
     <link rel="alternative" href="/atom.xml" title="CollSkill" type="application/atom+xml">
   
@@ -166,246 +145,66 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-PicGo + Gitee搭建个人免费图床详细流程" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 class="article-title" itemprop="name">
-      PicGo + Gitee搭建个人免费图床详细流程
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/07/05/Windows%E4%B8%8BHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%AF%A6%E7%BB%86%E6%B5%81%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2020-07-05T05:38:52.160Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-05</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/07/05/Windows%E4%B8%8BHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%AF%A6%E7%BB%86%E6%B5%81%E7%A8%8B/">Windows下Hexo搭建个人博客详细流程</a>
     </h1>
   
 
-	<!--显示阅读次数-->
-	
-  		<br/>
-  		<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
-  		<span class="icon-sort"></span>
-  		<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-  		</span>
-  		</a>
-	
-	<!--显示阅读次数完毕-->
-        
-        <a href="/2020/07/09/PicGo%20+%20Gitee%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A%E8%AF%A6%E7%BB%86%E6%B5%81%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-07-09T06:41:55.196Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>个人博客是搭建起来了（详细流程请参阅<a href="https://blog.csdn.net/CoolSkill/article/details/107137993" target="_blank" rel="noopener">Windows下Hexo搭建个人博客详细流程</a>），可是不经意间又发现了一个痛点：<br>写博客的时候，总是需要插入图片的，图片存在本地的话上传到博客网站去就没法显示了，就算一张一张地复制粘贴上去了，再想移植到其他的博客网站时，图片也会失效。<br>为了解决这个痛点，搭建个人图床的想法就应运而生了。</p>
-<a id="more"></a>
-
-<p>经了解，PicGo + Gitee(码云)搭建图床是目前而言最适合我的图床方案了，免费且好用还是挺香的。</p>
-<p>冥冥之中有预感，搭建一个自己的图床相当有必要。仅是本着未雨绸缪的心态，动手做了一个吧，流程走下来也没花多少时间。<br>废话说到这里，下面开始进入正题。</p>
-<h2 id="战前准备"><a href="#战前准备" class="headerlink" title="战前准备"></a>战前准备</h2><ul>
-<li><p><strong>node.js</strong>（PicGo插件依赖于nodejs，下载地址：<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>（安装LTS版本））</p>
-</li>
-<li><p><strong>PicGo</strong>（下载地址：<a href="https://github.com/Molunerfinn/PicGo/releases" target="_blank" rel="noopener">PicGo Github地址</a>或<a href="https://erkye.lanzous.com/ic65zmf" target="_blank" rel="noopener">PicGo蓝奏云（速度快）</a>）<br>软件的安装均特别简单，一直”next”即可，这里就不详细赘述。 </p>
-</li>
-<li><p><a href="https://gitee.com/" target="_blank" rel="noopener"><strong>Gitee账号</strong></a>，网站引导都是中文，流程简单，请自行注册。</p>
-</li>
-</ul>
-<h2 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h2><h3 id="1-建立gitee（码云）图床库"><a href="#1-建立gitee（码云）图床库" class="headerlink" title="1. 建立gitee（码云）图床库"></a>1. 建立gitee（码云）图床库</h3><p>登录gitee进入网站主页，点击右上角的<code>+</code>号，<code>新建仓库</code>，输入<code>仓库名称</code>，选择<code>公开</code>，勾选<code>使用Readme文件初始化这个仓库</code>，最后点击<code>创建</code><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3QyLnBuZw?x-oss-process=image/format,png" alt=""><br>回到主页，点击你的头像，进入<code>设置</code><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3QzLnBuZw?x-oss-process=image/format,png" alt=""><br>选择<code>私人令牌</code>，点击右上角<code>生成新令牌</code><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3Q0LnBuZw?x-oss-process=image/format,png" alt=""><br>填写<code>私人令牌描述</code>，选择<code>权限</code>，点击<code>提交</code><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3Q1LnBuZw?x-oss-process=image/format,png" alt=""><br>会弹出<code>账号验证窗口</code>，输入你的g<code>itee密码</code>，<code>验证</code>身份<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3Q2LnBuZw?x-oss-process=image/format,png" alt=""><br>生成令牌后点击复制，一会儿用得上。注：这个令牌明文只显示这一次，关闭这个窗口就没了,为防止不小心搞没了，建议新建一个文本将之储存下来（用完再删也不迟）。<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3Q3LnBuZw?x-oss-process=image/format,png" alt=""></p>
-<h3 id="2-配置PicGo"><a href="#2-配置PicGo" class="headerlink" title="2. 配置PicGo"></a>2. 配置PicGo</h3><p>安装之后打开主界面<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3QxLnBuZw?x-oss-process=image/format,png" alt=""><br>选择最底下的<code>插件设置</code>，搜索<code>gitee</code><br>这个地方有两个插件，功能差不多，配置的内容略有差异。<br>左边这个，亲测“上传失败”好苗子一枚，不多说。我们直接看右边这个<code>gitee-uploader 1.1.2</code>，想尝试左边插件的请参考文末<code>参考文章</code>，我i没成功兴许也只是我的问题。<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy8lMjBPdGhlcnMvZnVubnkvJUU2JTg4JTkxJUU0JUJGJUExJUU0JUJEJUEwJUU0JUI4JUFBJUU5JUFDJUJDJUU1JTkzJUE2LmpwZw?x-oss-process=image/format,png" alt=""><br>往上来到<code>PicGo 设置</code>（此步骤可忽略），我们可以设置一下<code>日志文件</code>，让日志文件仅记录警告和错误，方便我们查看错误信息，同时又不会占用大量的空间<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3Q4LnBuZw?x-oss-process=image/format,png" alt=""><br>再次点击取消<code>全部-All</code>的勾选<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3Q5LnBuZw?x-oss-process=image/format,png" alt=""><br>勾选<code>错误Error</code>、<code>提醒-Warn</code><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3QxMC5wbmc?x-oss-process=image/format,png" alt=""><br><code>确定</code>即可<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3QxMS5wbmc?x-oss-process=image/format,png" alt=""><br>紧接着滑到最下方，勾选<code>gitee</code><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3QxMi5wbmc?x-oss-process=image/format,png" alt=""></p>
-<p>在图床设置中选中<code>gitee</code>，进行相关设置<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3QxMy5wbmc?x-oss-process=image/format,png" alt=""><br>设置参数说明：<br>repo: gitee用户名/仓库名；保险起见，可直接复制仓库的url<br>branch: master    #分支名<br>token: gitee私人令牌，之前已复制，现在粘贴上去就好。<br>path: 用于仓库下存储的目录，随便填一个即可。<br>customPath和customUrl，两项均可不填。在提交到码云后，会显示提交消息，插件默认提交的是 Upload 图片名 by picGo 。</p>
-<p>点击<code>确定</code>，然后将其<code>设为默认图床</code>，大功告成。</p>
-<h3 id="3-测试"><a href="#3-测试" class="headerlink" title="3. 测试"></a>3. 测试</h3><p>随便选一张图片上传（picgo也支持剪贴板上传，截图工具推荐win10的Snipaste神器！）<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vY29vbHNraWxsL2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy9ibG9nSW1hZ2VIb3N0L1BpY0dvK0dpdGVlLWJsb2dJbWFnZUhvc3QxNC5wbmc?x-oss-process=image/format,png" alt=""><br>如果出现上传失败的错误，请重新仔细检查、比对你的配置是否正确。<br>上传之后默认复制链接，直接粘贴到你的编辑器即可，往后就可以愉快的进行写作了！赶快一起来试试吧。<br><a href="https://www.jianshu.com/p/b69950a49ae2" target="_blank" rel="noopener">参考文章</a></p>
-
-      
-
-      
-       
-         <div class="essayending">
-           <div>
-            <div style="text-align:center;color: #ccc;font-size:22px;">
-            <br/>
-            <br/>
-            -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
-            <br/>
-            <br/>
-             <br/>
-             <br/>
-            </div>
-           </div>
-         </div>
-       
-
-   
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-             <!-- 增加版权声明 -->
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thank You！！！<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">gitee</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">picgo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/09/PicGo%20+%20Gitee%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A%E8%AF%A6%E7%BB%86%E6%B5%81%E7%A8%8B/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/07/09/hexo%20d%20%E5%90%8E%E6%8F%90%E7%A4%BAHttpRequestException%20encountered.%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          hexo d 后提示HttpRequestException encountered.解决办法
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/07/08/%E7%9C%8B%E6%9D%BF%E5%A8%98%E5%AE%89%E8%A3%85%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">看板娘安装报错解决方案</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言："><span class="toc-number">1.</span> <span class="toc-text">前言：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#战前准备"><span class="toc-number">2.</span> <span class="toc-text">战前准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Action"><span class="toc-number">3.</span> <span class="toc-text">Action</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-建立gitee（码云）图床库"><span class="toc-number">3.1.</span> <span class="toc-text">1. 建立gitee（码云）图床库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-配置PicGo"><span class="toc-number">3.2.</span> <span class="toc-text">2. 配置PicGo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-测试"><span class="toc-number">3.3.</span> <span class="toc-text">3. 测试</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/2020/07/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/07/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -432,8 +231,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
